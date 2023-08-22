@@ -40,6 +40,7 @@ class HslavichOneloginSamlExtension extends Extension
             $clientId = sprintf('onelogin_auth.%s', $id);
             $clientDef = new ChildDefinition('onelogin_auth');
             $authConfig = $config;
+            $authConfig['sp'] = $idpConfig['sp'];
             unset($authConfig['idps']);
             $authConfig['idp'] = $idpConfig;
             $clientDef->replaceArgument(0, $authConfig);
