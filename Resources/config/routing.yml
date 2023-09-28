@@ -13,3 +13,16 @@ saml_login:
 saml_logout:
     path:     /saml/logout
     defaults: { _controller: Hslavich\OneloginSamlBundle\Controller\SamlController::singleLogoutServiceAction }
+
+saml_metadata_default:
+    path: /saml/metadata
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+        path: /saml/metadata/default
+        permanent: false
+
+saml_login_default:
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+        path: /saml/login/default
+        permanent: false
